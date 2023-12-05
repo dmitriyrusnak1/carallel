@@ -21,13 +21,9 @@ const LibraryPostPage = ({ params }) => {
 export async function getStaticPaths() {
     const res = readJsonFile("/public/json/data.json")
     
-    const paths = []
-
-    res.posts.forEach(el => {
-        paths.push({
-            params: { id: el.id.toString() }
-        })
-    })
+    const paths = res.posts.map(el => ({
+        params: { id: el.id.toString() }
+    }))
 
     return {
         paths,
