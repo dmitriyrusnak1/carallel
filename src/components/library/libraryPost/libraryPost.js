@@ -65,7 +65,7 @@ export const postType = {
     description: PropTypes.string
 }
 
-PostsWrapper.propTypes = {
+LibraryPost.propTypes = {
     post: PropTypes.shape(postType),
     related: PropTypes.arrayOf(PropTypes.shape(postType))
 };
