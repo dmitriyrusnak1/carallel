@@ -1,4 +1,5 @@
 import classes from "./postsWrapper.module.css"
+import PropTypes from 'prop-types';
 
 const PostsWrapper = (props) => {
     const { children } = props
@@ -9,5 +10,9 @@ const PostsWrapper = (props) => {
         </div>
     )
 }
+
+PostsWrapper.propTypes = {
+    children: PropTypes.node.isRequired
+};
 
 export default PostsWrapper

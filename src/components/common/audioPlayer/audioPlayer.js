@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from "react"
 import classes from "./audioPlayer.module.css"
 import { FaPlay, FaPause } from "react-icons/fa";
 
+import PropTypes from 'prop-types';
+
 const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
@@ -68,5 +70,9 @@ const AudioPlayer = ({ src }) => {
         </div>
     )
 }
+
+AudioPlayer.propTypes = {
+    src: PropTypes.string.isRequired
+};
 
 export default AudioPlayer

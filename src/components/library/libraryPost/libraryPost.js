@@ -5,6 +5,8 @@ import BigPostCard from "../card/big/bigPostCard";
 import PostsWrapper from "../postWrapper/postsWrapper";
 import AudioPlayer from "@/components/common/audioPlayer/audioPlayer";
 
+import PropTypes from 'prop-types';
+
 const LibraryPost = (props) => {
     const { post, related } = props
 
@@ -51,5 +53,21 @@ const LibraryPost = (props) => {
         </div>
     )
 }
+
+export const postType = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    type: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    shortDescription: PropTypes.string,
+    videoUrl: PropTypes.string,
+    description: PropTypes.string
+}
+
+PostsWrapper.propTypes = {
+    post: PropTypes.shape(postType),
+    related: PropTypes.arrayOf(PropTypes.shape(postType))
+};
 
 export default LibraryPost

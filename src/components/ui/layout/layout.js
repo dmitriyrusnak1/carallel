@@ -2,6 +2,8 @@ import classes from "./layout.module.css"
 import LayoutMenu from "./layoutMenu/layoutMenu"
 import LayoutNav from "./layoutNav/layoutNav"
 
+import PropTypes from 'prop-types';
+
 const Layout = (props) => {
     const { children, title } = props
 
@@ -15,5 +17,10 @@ const Layout = (props) => {
         </div>
     )
 }
+
+Layout.propTypes = {
+    title: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired
+};
 
 export default Layout

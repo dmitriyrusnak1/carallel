@@ -2,6 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import classes from "./smallPostCard.module.css"
 
+import PropTypes from 'prop-types';
+
 const SmallPostCard = (props) => {
     const { item } = props
 
@@ -19,5 +21,13 @@ const SmallPostCard = (props) => {
         </Link>
     )
 }
+
+SmallPostCard.propTypes = {
+    item: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired
+    })
+};
 
 export default SmallPostCard

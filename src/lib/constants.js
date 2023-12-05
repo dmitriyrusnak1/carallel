@@ -1,9 +1,30 @@
 export const PATHNAMES = {
-    home: "/",
-    login: "/login",
-    library: "/library",
-    settings: "/settings",
-    plan: "/plan",
-    tools: "/tools",
-    support: "/support"
+    home: {
+        label: "Home",
+        path: "/"
+    },
+    login: {
+        label: "Login",
+        path: "/login"
+    },
+    library: {
+        label: "Library",
+        path: "/library"
+    },
+    settings: {
+        label: "Settings",
+        path: "/settings"
+    },
+    plan: {
+        label: "Plan",
+        path: "/plan",
+    },
+    tools: {
+        label: "Tools",
+        path: "/tools"
+    },
+    support: {
+        label: "Support",
+        path: "/support"
+    }
 }

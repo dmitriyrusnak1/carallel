@@ -19,10 +19,9 @@ const LoginPage = () => {
     const onSubmit = (data) => {
         login(data.email, data.password).then(res => {
             if (!res) {
-                setLoginError("Invalid credentials!")
-            } else {
-                router.push(PATHNAMES.library)
+                return setLoginError("Invalid credentials!")
             }
+            router.push(PATHNAMES.library.path)
         })
     }
 
@@ -36,7 +35,7 @@ const LoginPage = () => {
     return (
         <div className={classes.main}>
             <div className={classes.modal}>
-                <h1>Login</h1>
+                <h1>{PATHNAMES.library.label}</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Controller
                         name="email"

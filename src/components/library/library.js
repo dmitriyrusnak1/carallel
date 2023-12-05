@@ -6,13 +6,20 @@ import SmallPostCard from "./card/small/smallPostCard"
 import classes from "./library.module.css"
 import PostsWrapper from "./postWrapper/postsWrapper"
 
+import PropTypes from 'prop-types';
+
+const filterPosts = (posts, postType, selectedFilter) => {
+    const filterAll = "all"
+
+    return posts.filter(el => el.type === postType && (selectedFilter !== filterAll ? el.tags.includes(selectedFilter) : true))
+}
+
 const Library = (props) => {
     const { posts } = props
 
-    const [selectedFilter, setSelectedFilter] = useState("all")
-
-
     const filters = ["all", "shared", "bookmark", "read"]
+
+    const [selectedFilter, setSelectedFilter] = useState(filters[0])
 
     return (
         <div className={classes.main}>
@@ -30,12 +37,12 @@ const Library = (props) => {
             <div className={classes.recomended}>
                 <h2>Recomended</h2>
                 <PostsWrapper>
-                    {posts.filter(el => el.type === "high" && (selectedFilter !== "all" ? el.tags.includes(selectedFilter) : true)).map(el => (
+                    {filterPosts(posts, "high", selectedFilter).map(el => (
                         <BigPostCard item={el} key={el.id}/>
                     ))}
                 </PostsWrapper>
                 <PostsWrapper>
-                    {posts.filter(el => el.type === "low" && (selectedFilter !== "all" ? el.tags.includes(selectedFilter) : true)).map(el => (
+                    {filterPosts(posts, "low", selectedFilter).map(el => (
                         <SmallPostCard item={el} key={el.id}/>
                     ))}
                 </PostsWrapper>
@@ -47,5 +54,18 @@ const Library = (props) => {
         </div>
     )
 }
+
+PostsWrapper.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string,
+        type: PropTypes.string,
+        tags: PropTypes.arrayOf(PropTypes.string),
+        shortDescription: PropTypes.string,
+        videoUrl: PropTypes.string,
+        description: PropTypes.string
+    }))
+};
 
 export default Library

@@ -16,28 +16,28 @@ const LayoutMenu = () => {
     const menuItems = [
         {
             icon: <GoHome />,
-            label: "Home",
-            path: PATHNAMES.home
+            label: PATHNAMES.home.label,
+            path: PATHNAMES.home.path
         },
         {
             icon: <LuBook />,
-            label: "Library",
-            path: PATHNAMES.library
+            label: PATHNAMES.library.label,
+            path: PATHNAMES.library.path
         },
         {
             icon: <BsCheck2Circle />,
-            label: "Plan",
-            path: PATHNAMES.plan
+            label: PATHNAMES.plan.label,
+            path: PATHNAMES.plan.path
         },
         {
             icon: <AiOutlineTool />,
-            label: "Tools",
-            path: PATHNAMES.tools
+            label: PATHNAMES.tools.label,
+            path: PATHNAMES.tools.path
         },
         {
             icon: <FcOnlineSupport />,
-            label: "Support",
-            path: PATHNAMES.support
+            label: PATHNAMES.support.label,
+            path: PATHNAMES.support.path
         }
     ]
 

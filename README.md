@@ -1,3 +1,5 @@
+Node version 18+ required
+
 creds:
     email: test@gmail.com
     pass: 123qwe

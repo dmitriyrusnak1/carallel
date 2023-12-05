@@ -1,5 +1,6 @@
 import Error from "../error/error"
 import classes from "./input.module.css"
+import PropTypes from 'prop-types';
 
 const Input = (props) => {
     const {
@@ -23,6 +24,19 @@ const Input = (props) => {
             {!!error && <Error>{error.message}</Error>}
         </div>
     )
+}
+
+Input.propTypes = {
+    label: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    error: PropTypes.object,
+};
+
+Input.defaultProps = {
+    type: "text",
 }
 
 export default Input
